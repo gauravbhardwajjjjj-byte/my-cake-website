@@ -1,0 +1,1825 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CakeHeaven | Online Order</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+    background:#fff0f5;
+    color:#333;
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    position:fixed;
+
+    width:100%;
+
+    top:0;
+    left:0;
+
+    padding:18px 50px;
+
+    background:rgba(255,255,255,0.97);
+
+    backdrop-filter:blur(20px);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+
+    z-index:1000;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#ff3a6e;
+
+    white-space:nowrap;
+
+}
+
+
+/* =====================================================
+   DESKTOP NAVIGATION
+===================================================== */
+
+.nav{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+}
+
+
+.nav a{
+
+    text-decoration:none;
+
+    padding:8px 15px;
+
+    color:#333;
+
+    border-radius:25px;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+}
+
+
+.nav a:hover{
+
+    background:#ff3a6e;
+
+    color:#fff;
+
+    transform:scale(1.05);
+
+}
+
+
+/* =====================================================
+   HAMBURGER BUTTON
+===================================================== */
+
+.menu-btn{
+
+    display:none;
+
+    background:transparent;
+
+    border:none;
+
+    color:#ff3a6e;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    line-height:1;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    margin-top:0;
+
+    min-height:430px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff96b8,
+            #ffc3a0
+        );
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:
+        130px 20px 80px;
+
+    color:white;
+
+}
+
+
+.hero h1{
+
+    font-size:46px;
+
+    line-height:1.2;
+
+    max-width:800px;
+
+}
+
+
+.hero p{
+
+    font-size:19px;
+
+    margin-top:15px;
+
+    line-height:1.6;
+
+}
+
+
+/* =====================================================
+   PRODUCT SECTION
+===================================================== */
+
+.product-section{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+        50px 25px 30px;
+
+}
+
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#ff3a6e;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   FILTER BUTTONS
+===================================================== */
+
+.filter-btns{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin:
+        10px 0 35px;
+
+}
+
+
+.filter-btns button{
+
+    background:#ff96b8;
+
+    color:white;
+
+    border:none;
+
+    padding:
+        10px 20px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    transition:0.3s;
+
+}
+
+
+.filter-btns button:hover,
+.filter-btns button.active{
+
+    background:#ff3a6e;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:30px;
+
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.product-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 25px rgba(255,58,110,0.15);
+
+    text-align:center;
+
+    overflow:hidden;
+
+    transition:0.3s;
+
+}
+
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 15px 30px rgba(255,58,110,0.22);
+
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.product-card img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        height 0.4s ease;
+
+}
+
+
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
+.product-info{
+
+    padding:20px;
+
+}
+
+
+.product-info h3{
+
+    color:#ff3a6e;
+
+    font-size:21px;
+
+    margin-bottom:8px;
+
+}
+
+
+.product-info p{
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    min-height:45px;
+
+}
+
+
+.product-info .price{
+
+    color:#ff3a6e;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    margin-top:10px;
+
+}
+
+
+/* =====================================================
+   QUANTITY
+===================================================== */
+
+.quantity{
+
+    margin-top:12px;
+
+}
+
+
+.quantity label{
+
+    font-weight:600;
+
+    margin-right:5px;
+
+}
+
+
+.quantity input{
+
+    width:70px;
+
+    padding:8px;
+
+    border:
+        1px solid #ff96b8;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+
+.quantity input:focus{
+
+    border-color:#ff3a6e;
+
+    box-shadow:
+        0 0 5px rgba(255,58,110,0.3);
+
+}
+
+
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
+
+.order-summary{
+
+    background:#fff;
+
+    padding:35px 25px;
+
+    border-radius:20px;
+
+    width:
+        calc(100% - 40px);
+
+    max-width:500px;
+
+    margin:
+        40px auto 70px;
+
+    box-shadow:
+        0 10px 25px rgba(255,58,110,0.15);
+
+    text-align:center;
+
+}
+
+
+.order-summary h2{
+
+    color:#ff3a6e;
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+
+.order-summary p{
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+
+.order-summary span{
+
+    font-weight:bold;
+
+    color:#ff3a6e;
+
+}
+
+
+.order-summary button{
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff96b8,
+            #ff3a6e
+        );
+
+    color:#fff;
+
+    border:none;
+
+    padding:
+        14px 30px;
+
+    border-radius:20px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    margin-top:10px;
+
+}
+
+
+.order-summary button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(255,58,110,0.3);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#ff3a6e;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+
+footer p{
+
+    font-size:15px;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1000px){
+
+    .header{
+
+        padding:
+            18px 30px;
+
+    }
+
+
+    .nav{
+
+        gap:5px;
+
+    }
+
+
+    .nav a{
+
+        font-size:14px;
+
+        padding:
+            8px 10px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:40px;
+
+    }
+
+
+    .product-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+
+    /* HEADER */
+
+    .header{
+
+        padding:
+            15px 20px;
+
+        min-height:65px;
+
+    }
+
+
+    .logo{
+
+        font-size:23px;
+
+    }
+
+
+    /* HAMBURGER */
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+
+    /* MOBILE NAV */
+
+    .nav{
+
+        display:none;
+
+        position:absolute;
+
+        top:65px;
+
+        left:0;
+
+        width:100%;
+
+        background:white;
+
+        flex-direction:column;
+
+        gap:0;
+
+        padding:8px 0;
+
+        box-shadow:
+            0 8px 15px rgba(0,0,0,0.12);
+
+    }
+
+
+    .nav.active{
+
+        display:flex;
+
+    }
+
+
+    .nav a{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:15px 20px;
+
+        border-radius:0;
+
+        font-size:16px;
+
+        border-bottom:
+            1px solid #f4dce4;
+
+    }
+
+
+    .nav a:last-child{
+
+        border-bottom:none;
+
+    }
+
+
+    .nav a:hover{
+
+        transform:none;
+
+    }
+
+
+    /* HERO */
+
+    .hero{
+
+        min-height:360px;
+
+        padding:
+            110px 20px 60px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:32px;
+
+        line-height:1.25;
+
+    }
+
+
+    .hero p{
+
+        font-size:16px;
+
+        margin-top:12px;
+
+    }
+
+
+    /* PRODUCT SECTION */
+
+    .product-section{
+
+        padding:
+            45px 15px 20px;
+
+    }
+
+
+    .section-title{
+
+        font-size:29px;
+
+        margin-bottom:20px;
+
+    }
+
+
+    /* FILTER */
+
+    .filter-btns{
+
+        gap:6px;
+
+        margin-bottom:30px;
+
+    }
+
+
+    .filter-btns button{
+
+        padding:
+            9px 14px;
+
+        font-size:14px;
+
+    }
+
+
+    /* PRODUCT GRID */
+
+    .product-grid{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+
+    /* CARD */
+
+    .product-card{
+
+        width:100%;
+
+        max-width:430px;
+
+        margin:auto;
+
+    }
+
+
+    .product-card:hover{
+
+        transform:translateY(-5px);
+
+    }
+
+
+    .product-card img{
+
+        height:280px !important;
+
+    }
+
+
+    .product-info{
+
+        padding:20px 15px 25px;
+
+    }
+
+
+    .product-info h3{
+
+        font-size:20px;
+
+    }
+
+
+    .product-info p{
+
+        font-size:15px;
+
+        min-height:auto;
+
+    }
+
+
+    /* ORDER SUMMARY */
+
+    .order-summary{
+
+        width:
+            calc(100% - 30px);
+
+        margin:
+            35px auto 55px;
+
+        padding:
+            30px 20px;
+
+    }
+
+
+    .order-summary h2{
+
+        font-size:26px;
+
+    }
+
+
+    .order-summary p{
+
+        font-size:17px;
+
+    }
+
+
+    .order-summary button{
+
+        width:100%;
+
+        max-width:280px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:400px){
+
+
+    .header{
+
+        padding:
+            14px 15px;
+
+    }
+
+
+    .logo{
+
+        font-size:20px;
+
+    }
+
+
+    .menu-btn{
+
+        font-size:27px;
+
+    }
+
+
+    .nav{
+
+        top:60px;
+
+    }
+
+
+    .hero{
+
+        padding:
+            100px 15px 55px;
+
+        min-height:330px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:28px;
+
+    }
+
+
+    .hero p{
+
+        font-size:14px;
+
+    }
+
+
+    .section-title{
+
+        font-size:26px;
+
+    }
+
+
+    .filter-btns button{
+
+        font-size:13px;
+
+        padding:
+            8px 11px;
+
+    }
+
+
+    .product-card img{
+
+        height:250px !important;
+
+    }
+
+
+    .product-info h3{
+
+        font-size:19px;
+
+    }
+
+
+    .quantity input{
+
+        width:65px;
+
+    }
+
+
+    .order-summary{
+
+        padding:
+            25px 15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+
+    <div class="logo">
+        CakeHeaven 🍰
+    </div>
+
+
+    <!-- HAMBURGER -->
+
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+
+        ☰
+
+    </button>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav" id="navMenu">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="cakemenu.html">
+            Cakes
+        </a>
+
+        <a href="cakeabout.html">
+            About
+        </a>
+
+        <a href="placeorder.html">
+            Place Order
+        </a>
+
+        <a href="cakecontact.html">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <h1>
+        Order Your Favorite Cake Online
+    </h1>
+
+    <p>
+        Delicious cakes delivered fresh to your door!
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCT SECTION
+===================================================== -->
+
+<section class="product-section" id="cakes">
+
+
+    <h2 class="section-title">
+        Our Cake Menu
+    </h2>
+
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="filter-btns">
+
+
+        <button
+            class="active"
+            onclick="filterCakes('all', this)">
+
+            All
+
+        </button>
+
+
+        <button
+            onclick="filterCakes('birthday', this)">
+
+            Birthday Cake
+
+        </button>
+
+
+        <button
+            onclick="filterCakes('chocolate', this)">
+
+            Chocolate Cake
+
+        </button>
+
+
+        <button
+            onclick="filterCakes('fruit', this)">
+
+            Fruit Cake
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- PRODUCT GRID -->
+
+    <div class="product-grid">
+
+
+        <!-- ================= BIRTHDAY ================= -->
+
+
+        <div
+            class="product-card"
+            data-category="birthday">
+
+
+            <img
+                src="https://i.pinimg.com/736x/b6/7c/3b/b67c3b0127d0325c46d64fc62d7b8ba6.jpg"
+                alt="Strawberry Cake">
+
+
+            <div class="product-info">
+
+                <h3>
+                    Strawberry Cake
+                </h3>
+
+                <p>
+                    Fresh strawberries and cream
+                </p>
+
+                <div
+                    class="price"
+                    data-price="1000">
+
+                    ₹1000
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <input
+                        type="number"
+                        class="qty"
+                        min="0"
+                        value="0"
+                        aria-label="Strawberry Cake quantity">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="product-card"
+            data-category="birthday">
+
+
+            <img
+                src="https://i.pinimg.com/originals/a5/c1/e4/a5c1e4495c9597c8c5f236a35714092a.jpg"
+                alt="Red Velvet Cake">
+
+
+            <div class="product-info">
+
+                <h3>
+                    Red Velvet
+                </h3>
+
+                <p>
+                    Classic red velvet with cream cheese frosting
+                </p>
+
+                <div
+                    class="price"
+                    data-price="500">
+
+                    ₹500
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <input
+                        type="number"
+                        class="qty"
+                        min="0"
+                        value="0"
+                        aria-label="Red Velvet quantity">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CHOCOLATE ================= -->
+
+
+        <div
+            class="product-card"
+            data-category="chocolate">
+
+
+            <img
+                src="https://i.pinimg.com/originals/94/21/bf/9421bf8c5941eb50393ec90b1ea0aeba.jpg"
+                alt="Chocolate Heaven">
+
+
+            <div class="product-info">
+
+                <h3>
+                    Chocolate Heaven
+                </h3>
+
+                <p>
+                    Rich chocolate delight
+                </p>
+
+                <div
+                    class="price"
+                    data-price="499">
+
+                    ₹499
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <input
+                        type="number"
+                        class="qty"
+                        min="0"
+                        value="0"
+                        aria-label="Chocolate Heaven quantity">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="product-card"
+            data-category="chocolate">
+
+
+            <img
+                src="https://img.freepik.com/premium-photo/black-forest-chocolate-cake-with-cherries_1257227-177.jpg"
+                alt="Black Forest Cake">
+
+
+            <div class="product-info">
+
+                <h3>
+                    Black Forest
+                </h3>
+
+                <p>
+                    Chocolate cake with cherries
+                </p>
+
+                <div
+                    class="price"
+                    data-price="350">
+
+                    ₹350
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <input
+                        type="number"
+                        class="qty"
+                        min="0"
+                        value="0"
+                        aria-label="Black Forest quantity">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= FRUIT ================= -->
+
+
+        <div
+            class="product-card"
+            data-category="fruit">
+
+
+            <img
+                src="https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/yxicmtgb/dcb57a4a-2626-4328-b9a3-a5ce1fbb586a.png"
+                alt="Fruit Paradise">
+
+
+            <div class="product-info">
+
+                <h3>
+                    Fruit Paradise
+                </h3>
+
+                <p>
+                    Loaded with fresh fruits
+                </p>
+
+                <div
+                    class="price"
+                    data-price="299">
+
+                    ₹299
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <input
+                        type="number"
+                        class="qty"
+                        min="0"
+                        value="0"
+                        aria-label="Fruit Paradise quantity">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="product-card"
+            data-category="fruit">
+
+
+            <img
+                src="https://i.redd.it/uw7jm5wdm3y81.jpg"
+                alt="Vanilla Dream">
+
+
+            <div class="product-info">
+
+                <h3>
+                    Vanilla Dream
+                </h3>
+
+                <p>
+                    Soft vanilla cake with buttercream
+                </p>
+
+                <div
+                    class="price"
+                    data-price="499">
+
+                    ₹499
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <input
+                        type="number"
+                        class="qty"
+                        min="0"
+                        value="0"
+                        aria-label="Vanilla Dream quantity">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ORDER SUMMARY
+===================================================== -->
+
+<div class="order-summary">
+
+
+    <h2>
+        Your Order
+    </h2>
+
+
+    <p>
+        Total Items:
+        <span id="total-items">0</span>
+    </p>
+
+
+    <p>
+        Total Price:
+        ₹<span id="total-price">0</span>
+    </p>
+
+
+    <button onclick="placeOrder()">
+        Place Order
+    </button>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        © 2026 CakeHeaven | All Rights Reserved
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+/* =====================================================
+   HAMBURGER MENU
+===================================================== */
+
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+
+const navMenu =
+    document.getElementById("navMenu");
+
+
+menuBtn.addEventListener(
+    "click",
+    function(){
+
+        navMenu.classList.toggle("active");
+
+
+        const isOpen =
+            navMenu.classList.contains("active");
+
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+
+        if(isOpen){
+
+            menuBtn.innerHTML = "✕";
+
+        }else{
+
+            menuBtn.innerHTML = "☰";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE MOBILE MENU AFTER CLICK
+===================================================== */
+
+
+document
+.querySelectorAll(".nav a")
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            navMenu.classList.remove("active");
+
+            menuBtn.innerHTML = "☰";
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   RESET MENU ON DESKTOP
+===================================================== */
+
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        if(window.innerWidth > 700){
+
+            navMenu.classList.remove("active");
+
+            menuBtn.innerHTML = "☰";
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CAKE FILTER
+===================================================== */
+
+
+function filterCakes(category, btn){
+
+
+    const cards =
+        document.querySelectorAll(".product-card");
+
+
+    cards.forEach(function(card){
+
+
+        const img =
+            card.querySelector("img");
+
+
+        if(
+            category === "all" ||
+            card.dataset.category === category
+        ){
+
+            card.style.display = "block";
+
+
+            /*
+                On desktop the selected category
+                gets a larger image.
+            */
+
+            if(
+                category === "birthday" ||
+                category === "chocolate" ||
+                category === "fruit"
+            ){
+
+                img.style.height = "400px";
+
+            }else{
+
+                img.style.height = "300px";
+
+            }
+
+
+        }else{
+
+            card.style.display = "none";
+
+            img.style.height = "300px";
+
+        }
+
+    });
+
+
+    /*
+        Update active button
+    */
+
+    document
+    .querySelectorAll(".filter-btns button")
+    .forEach(function(button){
+
+        button.classList.remove("active");
+
+    });
+
+
+    btn.classList.add("active");
+
+}
+
+
+/* =====================================================
+   ORDER CALCULATION
+===================================================== */
+
+
+const totalItemsEl =
+    document.getElementById("total-items");
+
+
+const totalPriceEl =
+    document.getElementById("total-price");
+
+
+function updateOrder(){
+
+
+    let items = 0;
+
+    let price = 0;
+
+
+    document
+    .querySelectorAll(".product-card")
+    .forEach(function(card){
+
+
+        const qtyInput =
+            card.querySelector(".qty");
+
+
+        let qty =
+            parseInt(qtyInput.value) || 0;
+
+
+        /*
+            Prevent negative quantity.
+        */
+
+        if(qty < 0){
+
+            qty = 0;
+
+            qtyInput.value = 0;
+
+        }
+
+
+        const cakePrice =
+            parseInt(
+                card.querySelector(".price")
+                .dataset.price
+            );
+
+
+        items += qty;
+
+        price += qty * cakePrice;
+
+
+    });
+
+
+    totalItemsEl.innerText =
+        items;
+
+
+    totalPriceEl.innerText =
+        price;
+
+}
+
+
+/* =====================================================
+   QUANTITY INPUT EVENTS
+===================================================== */
+
+
+document
+.querySelectorAll(".qty")
+.forEach(function(input){
+
+
+    input.addEventListener(
+        "input",
+        updateOrder
+    );
+
+
+});
+
+
+/* =====================================================
+   PLACE ORDER
+===================================================== */
+
+
+function placeOrder(){
+
+
+    const totalItems =
+        parseInt(
+            totalItemsEl.innerText
+        );
+
+
+    const totalPrice =
+        totalPriceEl.innerText;
+
+
+    if(totalItems === 0){
+
+
+        alert(
+            "Please select at least one cake to order!"
+        );
+
+
+        return;
+
+    }
+
+
+    alert(
+        "Thank you for your order!\n\n" +
+        "Total Items: " +
+        totalItems +
+        "\nTotal Price: ₹" +
+        totalPrice
+    );
+
+
+    /*
+        Reset all quantity inputs.
+    */
+
+    document
+    .querySelectorAll(".qty")
+    .forEach(function(input){
+
+        input.value = 0;
+
+    });
+
+
+    updateOrder();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+```
