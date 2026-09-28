@@ -1,0 +1,1240 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | CakeHeaven</title>
+
+
+    <style>
+
+        /* ================= RESET ================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            background: #fff4f8;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= FLOATING SHAPES ================= */
+
+        .floating-shape {
+            position: absolute;
+            width: 90px;
+            opacity: 0.4;
+            animation: float 6s infinite ease-in-out;
+            z-index: -1;
+        }
+
+
+        .shape1 {
+            top: 80px;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+
+        .shape2 {
+            top: 450px;
+            right: 8%;
+            animation-delay: 2s;
+        }
+
+
+        .shape3 {
+            top: 250px;
+            left: 70%;
+            width: 120px;
+            animation-delay: 1s;
+        }
+
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-22px);
+            }
+
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .header {
+
+            position: fixed;
+
+            width: 100%;
+
+            top: 0;
+            left: 0;
+
+            padding: 18px 50px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            backdrop-filter: blur(20px);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            z-index: 1000;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+        }
+
+
+        /* ================= LOGO ================= */
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #ff3a6e;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* ================= DESKTOP NAV ================= */
+
+        .nav {
+
+            display: flex;
+
+            gap: 15px;
+
+            align-items: center;
+
+        }
+
+
+        .nav a {
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            color: #333;
+
+            transition: 0.3s;
+
+            padding: 8px 15px;
+
+            border-radius: 25px;
+
+        }
+
+
+        .nav a:hover {
+
+            background: #ff3a6e;
+
+            color: #fff;
+
+            transform: scale(1.05);
+
+        }
+
+
+        /* ================= HAMBURGER ================= */
+
+        .menu-btn {
+
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            font-size: 30px;
+
+            color: #ff3a6e;
+
+            cursor: pointer;
+
+            line-height: 1;
+
+        }
+
+
+        /* ================= HERO ================= */
+
+        .about-hero {
+
+            text-align: center;
+
+            padding: 145px 20px 100px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff96b8,
+                    #ff3a6e
+                );
+
+            color: white;
+
+            clip-path:
+                ellipse(150% 100% at 50% 0%);
+
+        }
+
+
+        .about-hero h1 {
+
+            font-size: 50px;
+
+            line-height: 1.2;
+
+        }
+
+
+        .about-hero p {
+
+            margin-top: 15px;
+
+            font-size: 20px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ================= ABOUT CONTENT ================= */
+
+        .about-content {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 80px 40px;
+
+            gap: 60px;
+
+        }
+
+
+        .about-text {
+
+            flex: 1 1 450px;
+
+            min-width: 0;
+
+        }
+
+
+        .about-text h2 {
+
+            font-size: 36px;
+
+            color: #ff3a6e;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .about-text p {
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .about-image {
+
+            flex: 1 1 450px;
+
+            min-width: 0;
+
+            text-align: center;
+
+        }
+
+
+        .about-image img {
+
+            width: 100%;
+
+            max-width: 550px;
+
+            height: auto;
+
+            display: block;
+
+            margin: auto;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.1);
+
+        }
+
+
+        /* ================= TEAM ================= */
+
+        .team {
+
+            text-align: center;
+
+            padding: 70px 20px 80px;
+
+        }
+
+
+        .team h2 {
+
+            font-size: 36px;
+
+            color: #ff3a6e;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .team-members {
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 40px;
+
+        }
+
+
+        /* ================= TEAM MEMBER ================= */
+
+        .member {
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.1);
+
+            text-align: center;
+
+            transition: 0.3s;
+
+        }
+
+
+        .member:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.15);
+
+        }
+
+
+        .member img {
+
+            width: 100%;
+
+            max-width: 200px;
+
+            height: 200px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin: 0 auto 15px;
+
+            display: block;
+
+        }
+
+
+        .member h3 {
+
+            font-size: 20px;
+
+            color: #ff3a6e;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .member p {
+
+            font-size: 16px;
+
+            color: #666;
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #ff3a6e;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            margin-top: 20px;
+
+        }
+
+
+        /* ================================================= */
+        /* ================= TABLET ======================== */
+        /* ================================================= */
+
+        @media (max-width: 1000px) {
+
+
+            .header {
+
+                padding: 18px 30px;
+
+            }
+
+
+            .nav {
+
+                gap: 5px;
+
+            }
+
+
+            .nav a {
+
+                font-size: 14px;
+
+                padding: 8px 10px;
+
+            }
+
+
+            .about-content {
+
+                gap: 40px;
+
+                padding-left: 30px;
+
+                padding-right: 30px;
+
+            }
+
+
+            .about-text h2 {
+
+                font-size: 32px;
+
+            }
+
+
+            .about-text p {
+
+                font-size: 17px;
+
+            }
+
+
+            .team-members {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                max-width: 650px;
+
+            }
+
+        }
+
+
+        /* ================================================= */
+        /* ================= MOBILE ======================== */
+        /* ================================================= */
+
+        @media (max-width: 700px) {
+
+
+            /* ---------- HEADER ---------- */
+
+            .header {
+
+                padding: 15px 20px;
+
+                min-height: 65px;
+
+            }
+
+
+            .logo {
+
+                font-size: 23px;
+
+            }
+
+
+            /* ---------- HAMBURGER ---------- */
+
+            .menu-btn {
+
+                display: block;
+
+            }
+
+
+            /* ---------- MOBILE NAV ---------- */
+
+            .nav {
+
+                display: none;
+
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: white;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                padding: 8px 0;
+
+                box-shadow:
+                    0 8px 15px rgba(0,0,0,0.12);
+
+            }
+
+
+            .nav.active {
+
+                display: flex;
+
+            }
+
+
+            .nav a {
+
+                width: 100%;
+
+                text-align: center;
+
+                padding: 15px 20px;
+
+                border-radius: 0;
+
+                font-size: 16px;
+
+                border-bottom:
+                    1px solid #f4dce4;
+
+            }
+
+
+            .nav a:last-child {
+
+                border-bottom: none;
+
+            }
+
+
+            .nav a:hover {
+
+                background: #ff3a6e;
+
+                color: white;
+
+                transform: none;
+
+            }
+
+
+            /* ---------- HERO ---------- */
+
+            .about-hero {
+
+                padding:
+                    115px 20px 75px;
+
+                clip-path:
+                    ellipse(170% 100% at 50% 0%);
+
+            }
+
+
+            .about-hero h1 {
+
+                font-size: 36px;
+
+            }
+
+
+            .about-hero p {
+
+                font-size: 16px;
+
+                margin-top: 12px;
+
+            }
+
+
+            /* ---------- ABOUT CONTENT ---------- */
+
+            .about-content {
+
+                flex-direction: column;
+
+                padding:
+                    60px 20px;
+
+                gap: 35px;
+
+                text-align: center;
+
+            }
+
+
+            .about-text {
+
+                width: 100%;
+
+            }
+
+
+            .about-text h2 {
+
+                font-size: 30px;
+
+            }
+
+
+            .about-text p {
+
+                font-size: 16px;
+
+                line-height: 1.7;
+
+                margin-bottom: 18px;
+
+            }
+
+
+            .about-image {
+
+                width: 100%;
+
+            }
+
+
+            .about-image img {
+
+                width: 100%;
+
+                max-width: 500px;
+
+                border-radius: 16px;
+
+            }
+
+
+            /* ---------- TEAM ---------- */
+
+            .team {
+
+                padding:
+                    50px 20px 60px;
+
+            }
+
+
+            .team h2 {
+
+                font-size: 30px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .team-members {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+
+                max-width: 380px;
+
+            }
+
+
+            .member {
+
+                width: 100%;
+
+                max-width: 350px;
+
+                margin: auto;
+
+                padding: 20px;
+
+            }
+
+
+            .member img {
+
+                width: 180px;
+
+                height: 180px;
+
+            }
+
+
+            .member:hover {
+
+                transform:
+                    translateY(-5px);
+
+            }
+
+        }
+
+
+        /* ================================================= */
+        /* ============== SMALL MOBILE ===================== */
+        /* ================================================= */
+
+        @media (max-width: 400px) {
+
+
+            .header {
+
+                padding:
+                    14px 15px;
+
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+
+            }
+
+
+            .menu-btn {
+
+                font-size: 27px;
+
+            }
+
+
+            .nav {
+
+                top: 60px;
+
+            }
+
+
+            .about-hero {
+
+                padding:
+                    105px 15px 65px;
+
+            }
+
+
+            .about-hero h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .about-hero p {
+
+                font-size: 14px;
+
+            }
+
+
+            .about-content {
+
+                padding:
+                    50px 15px;
+
+            }
+
+
+            .about-text h2 {
+
+                font-size: 27px;
+
+            }
+
+
+            .about-text p {
+
+                font-size: 15px;
+
+            }
+
+
+            .team {
+
+                padding:
+                    45px 15px 50px;
+
+            }
+
+
+            .team h2 {
+
+                font-size: 27px;
+
+            }
+
+
+            .member {
+
+                padding: 18px;
+
+            }
+
+
+            .member img {
+
+                width: 160px;
+
+                height: 160px;
+
+            }
+
+
+            .member h3 {
+
+                font-size: 19px;
+
+            }
+
+
+            .member p {
+
+                font-size: 14px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+
+        <div class="logo">
+            CakeHeaven 🍰
+        </div>
+
+
+        <!-- HAMBURGER BUTTON -->
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav" id="navMenu">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="cakemenu.html">
+                Cakes
+            </a>
+
+            <a href="cakeabout.html">
+                About
+            </a>
+
+            <a href="placeorder.html">
+                Place Order
+            </a>
+
+            <a href="cakecontact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="about-hero">
+
+        <h1>
+            About CakeHeaven
+        </h1>
+
+        <p>
+            Creating sweet memories with every bite!
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= ABOUT CONTENT ================= -->
+
+    <section class="about-content">
+
+
+        <div class="about-text">
+
+            <h2>
+                Our Story
+            </h2>
+
+
+            <p>
+                At CakeHeaven, we believe that cakes are not
+                just desserts—they're memories, celebrations,
+                and a way to bring joy to people's lives.
+                Since our inception, we've been dedicated to
+                crafting the most delicious, beautifully
+                designed cakes that turn any occasion into
+                a special one.
+            </p>
+
+
+            <p>
+                From classic birthday cakes to gourmet
+                chocolate delights and fresh fruit creations,
+                our passion is baking happiness into every
+                bite. Our team of skilled bakers ensures
+                every cake is a masterpiece.
+            </p>
+
+        </div>
+
+
+
+        <div class="about-image">
+
+            <img
+                src="https://img.freepik.com/premium-photo/pastry-chef-decorating-fresh-strawberry-cake_254869-3795.jpg"
+                alt="Our Bakery">
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= TEAM ================= -->
+
+    <section class="team">
+
+
+        <h2>
+            Meet Our Team
+        </h2>
+
+
+        <div class="team-members">
+
+
+            <!-- MEMBER 1 -->
+
+            <div class="member">
+
+                <img
+                    src="https://www.awesomecuisine.com/wp-content/uploads/2018/03/sanjeev_kapoor.jpg"
+                    alt="Sanjeev Kapoor">
+
+                <h3>
+                    Sanjeev Kapoor
+                </h3>
+
+                <p>
+                    Head Pastry Chef
+                </p>
+
+            </div>
+
+
+
+            <!-- MEMBER 2 -->
+
+            <div class="member">
+
+                <img
+                    src="https://dusbus.com/wp-content/uploads/2020/09/ManeetChauhan.jpg"
+                    alt="Maneet Chauhan">
+
+                <h3>
+                    Maneet Chauhan
+                </h3>
+
+                <p>
+                    Chocolate Specialist
+                </p>
+
+            </div>
+
+
+
+            <!-- MEMBER 3 -->
+
+            <div class="member">
+
+                <img
+                    src="http://bsmedia.business-standard.com/_media/bs/img/article/2016-10/23/full/1477246396-5339.jpg"
+                    alt="Vikash Kanna">
+
+                <h3>
+                    Vikash Kanna
+                </h3>
+
+                <p>
+                    Fruit Cake Artist
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 CakeHeaven | All Rights Reserved
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ==========================================
+           HAMBURGER MENU
+        ========================================== */
+
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+
+        const navMenu =
+            document.getElementById("navMenu");
+
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+
+                navMenu.classList.toggle("active");
+
+
+                const isOpen =
+                    navMenu.classList.contains("active");
+
+
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                );
+
+
+                /* Change icon */
+
+                if (isOpen) {
+
+                    menuBtn.innerHTML = "✕";
+
+                } else {
+
+                    menuBtn.innerHTML = "☰";
+
+                }
+
+            }
+        );
+
+
+
+        /* ==========================================
+           CLOSE MENU AFTER LINK CLICK
+        ========================================== */
+
+
+        const navLinks =
+            document.querySelectorAll(".nav a");
+
+
+        navLinks.forEach(
+            function (link) {
+
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+
+                        navMenu.classList.remove(
+                            "active"
+                        );
+
+
+                        menuBtn.innerHTML = "☰";
+
+
+                        menuBtn.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* ==========================================
+           RESET MENU WHEN SCREEN BECOMES DESKTOP
+        ========================================== */
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+
+                if (window.innerWidth > 700) {
+
+
+                    navMenu.classList.remove(
+                        "active"
+                    );
+
+
+                    menuBtn.innerHTML = "☰";
+
+
+                    menuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
+```
